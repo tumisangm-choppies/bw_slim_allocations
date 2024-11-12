@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.33026.149
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "Slim_Allocations", "Slim_Allocations\Slim_Allocations.dtproj", "{A3CF746B-02CA-4DBD-A116-7E2EBB68FC39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A3CF746B-02CA-4DBD-A116-7E2EBB68FC39}.Development|Default.ActiveCfg = Development
+		{A3CF746B-02CA-4DBD-A116-7E2EBB68FC39}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D59C0E01-F448-4B03-8074-5EB86C00E346}
+	EndGlobalSection
+EndGlobal

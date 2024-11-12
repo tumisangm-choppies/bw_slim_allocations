@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="185.117.24.149,14333.Choppiesi.slim4Choppiesi"
+  DTS:DTSID="{018C4467-016C-4828-9092-E95DC25E1F44}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=185.117.24.149,14333;User ID=slim4Choppiesi;Initial Catalog=Choppiesi;Persist Security Info=True;Application Name=SSIS-Slim_Allocations-{018C4467-016C-4828-9092-E95DC25E1F44}185.117.24.149,14333.Choppiesi.slim4Choppiesi;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6jSO9NxPmUG2SAgBG+O2tAAAAAACAAAAAAAQZgAAAAEAACAAAAAqYm9h+YHIKXLIOBQt1TMjnX54aHIJpg529P9w5jpUAQAAAAAOgAAAAAIAACAAAACGI2DrsfTuR5F/3FzSEt+LPzSsRlSDVF7R7YS4qGjVhpAAAADqU7zner4tcJMS7DAXZCn7HoXSV7CS8Gv/tL5GK5mFZhgVngLJbCzvHSli3MKRCRPK319fzmuctPg3MVW6pTKvalcaoV7dqQujDPNt/jFyy3S2rRCSy0JFsJgI6Uu+YXNqUFdh714lLkenHj47pbbDhKB2S5dkx1HaHQUBQnV92BWBwB/5lxyjckRkAYiityhAAAAAlS/JMmNXGs8VmQ89HfE6lUQWG1bG3xnzpccUFXtcUerc9XtS25FYgDbSqjDl8qojMJeg5Sqr/2VbswUG9hDNJA==</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

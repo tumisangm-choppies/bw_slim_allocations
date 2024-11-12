@@ -1,0 +1,1191 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/2/2024 11:21:21 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="FRESHSERVER"
+  DTS:CreatorName="FRESHSERVER\Administrator"
+  DTS:DTSID="{F07F4CEE-CF8A-4D2E-9648-4C5CC75FEAAE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="daily_allocations"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{B91E9EC6-91C2-4E39-A76D-574A5292F0C9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B3BADC2E-CEAC-497E-B760-164C7F7E3194}"
+      DTS:ObjectName="192.168.169.30.CH_HO.CH_HO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.169.30;User ID=CH_HO;Initial Catalog=CH_HO;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-daily_allocations-{B3BADC2E-CEAC-497E-B760-164C7F7E3194}192.168.169.30.CH_HO.CH_HO;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6jSO9NxPmUG2SAgBG+O2tAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABbC1rn3CpOxlYmS5dtzZvNhC8It2uRfcARbPFpfiu+owAAAAAOgAAAAAIAACAAAABF5mchoYQFhtzCOqTgGDfhii0FZRCaBuErtxjux8U1LSAAAACGNmXdOrG4CSlagOppmg+2Vutllkx+UB3K61FbAzgTPkAAAACohuHTn3EFXU+uDPVr43pcSQCIKpX41rP9CCJvkZwSbKLrWfn63cf+UA2pPY8eIUdfsGT6G5syN2HTupJOOaES</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{9C0D6CBA-3A2D-430B-B448-656A11E580A8}"
+      DTS:ObjectName="192.168.169.30.CH_HO.CH_HO1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.169.30;User ID=CH_HO;Initial Catalog=CH_HO;Application Name=SSIS-daily_allocations-{9C0D6CBA-3A2D-430B-B448-656A11E580A8}192.168.169.30.CH_HO.CH_HO1;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6jSO9NxPmUG2SAgBG+O2tAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACBbmeDyHbaGTEmgolTMlmlKWgoOE210NcF5zHWiEuLZAAAAAAOgAAAAAIAACAAAADX0pns/4n4lip4iqQEpeNmEs8aZoPkRW2KDSt/xRDpiiAAAAAm/HhOSXf9F7hBz60EjUzgnSYQVG3d2f39NxBzUIpto0AAAAD07WIoXGA1OeAmOzOQfytLKYOIMToL6rsQWjWqM+W6AiZf9VySjZhToYPdsemkaZSIwYp+1Inw6buC9ryDmvWr</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SlimProduction]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}"
+      DTS:ObjectName="SlimProduction">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=185.117.24.149,14333;User ID=slim4Choppiesi;Initial Catalog=Choppiesi;Application Name=SSIS-daily_allocations-{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}185.117.24.149,14333.Choppiesi.slim4Choppiesi;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6jSO9NxPmUG2SAgBG+O2tAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAACpZZGIGD3PjM+HktNb2KponlI0MlaLyJluMBi/IadFgAAAAAOgAAAAAIAACAAAAASgB+Gnc5m44tSxsKi+l5Xy6af18+2ltVXhAOsXoCHS0AAAAA9ZipbZqgL4/R/yGYg8CmM5MMCxyakSyUfLxoUKHkSENuIzsMD+i/WfR364Pgup74/j9U5xl+8vleQRXYeVuZjQAAAACvH5qY3w5Pnc+uKvlJl8E4X0p5Gz3RWBIOK2J+Q7u5fJmyQ555G96iqyy3tskeofc92YRfZQOOwa/QYly3jYMw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{D719373F-9D9F-4531-AF8C-761A153B79F2}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Backup"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{83FB3212-9DC1-4626-B4BE-F4650FFB8886}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Backup"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}"
+              SQLTask:SqlStatementSource="INSERT INTO S4Export_ReturnAdvice_backup_BKUP (controlId, column1, column2, column3,column4, column5, Import_Date)&#xA; SELECT controlId, column1, column2, column3, column5, column7,   GETDATE() &#xA;FROM s4Export_Choppies_Allocation&#xA;WHERE column7 = 'BW' AND (controlId IN   (SELECT controlId FROM  ExportControl WHERE controlStatus = '2' and country='BW' AND exportTable='s4Export_Choppies_Allocation'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Execute SQL-ch_ho"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9084BA80-97E2-42B4-B357-70F1A7AF1921}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL-ch_ho"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{B3BADC2E-CEAC-497E-B760-164C7F7E3194}"
+              SQLTask:SqlStatementSource="SELECT DISTINCT CONTROLID AS ID, VEN_VENDOR_CD,  CASE ISNULL(VEN_ORG_CODE,'') WHEN '' THEN 'PO' ELSE 'SO' END AS ADVICE_TYPES  &#xA; INTO #TEMP FROM S4EXPORT_RETURNADVICE_IRETAIL&#xA; INNER JOIN VENDOR_MST ON VENDOR_CODE=VEN_VENDOR_CD AND ISNULL(STATUS,'')='' and isnull(TRANSFER_FLAG,'')=0&#xA; UPDATE A SET ADVICE_TYPE=ADVICE_TYPES,IMPORT_DATE=GETDATE(),TRANSFER_FLAG=0 FROM S4EXPORT_RETURNADVICE_IRETAIL A , #TEMP B WHERE  CONTROLID = ID and isnull(STATUS,'')='' and isnull(TRANSFER_FLAG,'')=0&#xA;&#xA; Update S4EXPORT_RETURNADVICE_IRETAIL set ADVICE_TYPE='TO' where VENDOR_CODE in('000000000425','000000000426','000000006126') AND  SUBSTRING(Store_code,5,6) IN('065','066','114')&#xA;&#xA; &#xA; DROP TABLE #TEMP" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Remove Data"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7B9CDA32-9ECD-4AF7-B2BC-EC88E0B0184B}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Remove Data"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}"
+              SQLTask:SqlStatementSource="  Delete FROM s4Export_Choppies_Allocation WHERE CONTROLID IN (SELECT CONTROLID FROM EXPORTCONTROL WHERE CONTROLSTATUS=4 and country='BW' AND exportTable='s4Export_Choppies_Allocation')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Transfer Allocations"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{87E767F9-C8A6-4A59-A11F-F5DDF7608D00}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transfer Allocations"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."S4Export_ReturnAdvice_iRetail"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO1]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[controlId]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="controlId"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[controlId]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[controlId]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[IMPORT_DATE]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="IMPORT_DATE"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[IMPORT_DATE]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[IMPORT_DATE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[column1]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column1"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Store_code]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column1]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[column2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column2"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Item_code]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column2]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[column3]"
+                          cachedDataType="numeric"
+                          cachedName="column3"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[QTY]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column3]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[column5]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column5"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Vendor_code]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column5]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[controlId]"
+                          dataType="wstr"
+                          length="200"
+                          name="controlId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Store_code]"
+                          dataType="wstr"
+                          length="200"
+                          name="Store_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Item_code]"
+                          dataType="wstr"
+                          length="200"
+                          name="Item_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[QTY]"
+                          dataType="numeric"
+                          name="QTY"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Vendor_code]"
+                          dataType="wstr"
+                          length="200"
+                          name="Vendor_code" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[STATUS]"
+                          dataType="wstr"
+                          length="1"
+                          name="STATUS" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[IMPORT_DATE]"
+                          dataType="dbTimeStamp"
+                          name="IMPORT_DATE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ADVICE_TYPE]"
+                          dataType="wstr"
+                          length="20"
+                          name="ADVICE_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[TRANSFER_FLAG]"
+                          dataType="wstr"
+                          length="10"
+                          name="TRANSFER_FLAG" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[iRetail_Purchase_ORDER_NO]"
+                          dataType="wstr"
+                          length="14"
+                          name="iRetail_Purchase_ORDER_NO" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Transfer Allocations\ADO NET Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="ADO NET Source"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT controlId, column1, column2, column3,column5,  GETDATE() AS IMPORT_DATE
+FROM    S4Export_Choppies_Allocation
+where   (column7 LIKE 'BW%') AND (controlId IN
+                             (SELECT        controlId
+                               FROM            ExportControl
+                               WHERE        (ISNULL(Country, N'') = 'BW') AND (controlStatus = '2') and (exportTable = 's4Export_Choppies_Allocation')))</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Connections[IDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[SlimProduction]"
+                      connectionManagerRefId="Package.ConnectionManagers[SlimProduction]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[controlId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[controlId]"
+                          length="100"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[controlId]"
+                          name="controlId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column1]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column1]"
+                          name="column1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column2]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column2]"
+                          name="column2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column3]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column3]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column3]"
+                          name="column3"
+                          precision="18"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column5]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column5]"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column5]"
+                          name="column5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[IMPORT_DATE]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[IMPORT_DATE]"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[IMPORT_DATE]"
+                          name="IMPORT_DATE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[controlId]"
+                          dataType="wstr"
+                          length="100"
+                          name="controlId" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column1]"
+                          dataType="wstr"
+                          length="255"
+                          name="column1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column2]"
+                          dataType="wstr"
+                          length="255"
+                          name="column2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column3]"
+                          dataType="numeric"
+                          name="column3"
+                          precision="18"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[column5]"
+                          dataType="wstr"
+                          length="255"
+                          name="column5" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[IMPORT_DATE]"
+                          dataType="dbTimeStamp"
+                          name="IMPORT_DATE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[controlId]"
+                          dataType="wstr"
+                          length="100"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[controlId]"
+                          name="controlId" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column1]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column1]"
+                          name="column1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column2]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column2]"
+                          name="column2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column3]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column3]"
+                          name="column3"
+                          precision="18"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column5]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[column5]"
+                          name="column5" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[IMPORT_DATE]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[IMPORT_DATE]"
+                          name="IMPORT_DATE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\Transfer Allocations\Lookup"
+                  componentClassID="Microsoft.Lookup"
+                  contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+                  description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+                  name="Lookup"
+                  usesDispositions="true"
+                  version="6">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement that generates the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT  CONTROLID,STORE_CODE,ITEM_CODE,VENDOR_CODE,QTY
+  FROM S4EXPORT_RETURNADVICE_IRETAIL  WITH(NOLOCK) where CONVERT(date,import_date)= convert(date,getdate())</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                      expressionType="Notify"
+                      name="SqlCommandParam"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT  CONTROLID,STORE_CODE,ITEM_CODE,VENDOR_CODE,QTY
+  FROM S4EXPORT_RETURNADVICE_IRETAIL  WITH(NOLOCK) where CONVERT(date,import_date)= convert(date,getdate())) [refTable]
+where [refTable].[CONTROLID] = ? and [refTable].[STORE_CODE] = ? and [refTable].[ITEM_CODE] = ? and [refTable].[QTY] = ? and [refTable].[VENDOR_CODE] = ?</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the type of connection used to access the reference dataset."
+                      name="ConnectionType"
+                      typeConverter="LookupConnectionType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the cache type of the lookup table."
+                      name="CacheType"
+                      typeConverter="CacheType">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                      name="NoMatchBehavior"
+                      typeConverter="LookupNoMatchBehavior">1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                      name="NoMatchCachePercentage">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                      name="MaxMemoryUsage">25</property>
+                    <property
+                      dataType="System.Int64"
+                      description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                      name="MaxMemoryUsage64">25</property>
+                    <property
+                      dataType="System.String"
+                      description="Indicates whether to reference metadata in an XML format."
+                      name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CONTROLID" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="STORE_CODE" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ITEM_CODE" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VENDOR_CODE" dataType="DT_WSTR" length="200" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="QTY" dataType="DT_NUMERIC" length="0" precision="18" scale="2" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                      name="ParameterMap">#{Package\Sequence Container\Transfer Allocations\106:invalid};#{Package\Sequence Container\Transfer Allocations\107:invalid};#{Package\Sequence Container\Transfer Allocations\108:invalid};#{Package\Sequence Container\Transfer Allocations\109:invalid};#{Package\Sequence Container\Transfer Allocations\110:invalid};</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                      name="TreatDuplicateKeysAsError">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\Transfer Allocations\Lookup.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.169.30.CH_HO.CH_HO]"
+                      description="Connection manager used to access lookup data."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input]"
+                      name="Lookup Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input].Columns[controlId]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="controlId"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[controlId]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">CONTROLID</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input].Columns[column1]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column1"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column1]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">STORE_CODE</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input].Columns[column2]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column2"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column2]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">ITEM_CODE</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input].Columns[column3]"
+                          cachedDataType="numeric"
+                          cachedName="column3"
+                          cachedPrecision="18"
+                          cachedScale="2"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column3]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">QTY</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                        <inputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input].Columns[column5]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="column5"
+                          lineageId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output].Columns[column5]">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table that a column joins."
+                              name="JoinToReferenceColumn">VENDOR_CODE</property>
+                            <property
+                              dataType="System.Null"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn" />
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output]"
+                      errorOrTruncationOperation="Lookup"
+                      exclusionGroup="1"
+                      name="Lookup Match Output"
+                      synchronousInputId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[CONTROLID]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[CONTROLID]"
+                          name="CONTROLID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">CONTROLID</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[ITEM_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[ITEM_CODE]"
+                          name="ITEM_CODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">ITEM_CODE</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[QTY]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Copy Column"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[QTY]"
+                          name="QTY"
+                          precision="18"
+                          scale="2"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">QTY</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[STORE_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[STORE_CODE]"
+                          name="STORE_CODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">STORE_CODE</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[VENDOR_CODE]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Copy Column"
+                          length="200"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Match Output].Columns[VENDOR_CODE]"
+                          name="VENDOR_CODE"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.String"
+                              description="Specifies the column in the reference table from which a column is copied."
+                              name="CopyFromReferenceColumn">VENDOR_CODE</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup No Match Output]"
+                      description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                      exclusionGroup="1"
+                      name="Lookup No Match Output"
+                      synchronousInputId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Lookup Error Output"
+                      synchronousInputId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\Transfer Allocations.Paths[ADO NET Source Output]"
+                  endId="Package\Sequence Container\Transfer Allocations\Lookup.Inputs[Lookup Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\Sequence Container\Transfer Allocations\ADO NET Source.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\Sequence Container\Transfer Allocations.Paths[Lookup No Match Output]"
+                  endId="Package\Sequence Container\Transfer Allocations\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  name="Lookup No Match Output"
+                  startId="Package\Sequence Container\Transfer Allocations\Lookup.Outputs[Lookup No Match Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update Export Control Status 4"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{B65B3B3A-B3FA-4312-AD52-1D05DAD4F2E9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update Export Control Status 4"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}"
+              SQLTask:SqlStatementSource="  update [Choppiesi].[dbo].[ExportControl] set [controlStatus]=4  where [controlStatus]=2 AND country='BW'  AND exportTable='s4Export_Choppies_Allocation'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\Update ExportControl"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8548E39D-B6E5-4B0F-890D-7231B081A997}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Update ExportControl"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{24BFC3D0-9271-4E47-A489-4CB9DBC0F878}"
+              SQLTask:SqlStatementSource="  update [Choppiesi].[dbo].[ExportControl] set [controlStatus]=2  where [controlStatus]=1 and country='BW' and exportTable='s4export_choppies_allocation'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F02C3D89-9729-4357-AC88-EFD3CA28BB8B}"
+          DTS:From="Package\Sequence Container\Update ExportControl"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Sequence Container\Transfer Allocations" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{347303DD-A528-426A-A45C-B6B61DD8CC51}"
+          DTS:From="Package\Sequence Container\Transfer Allocations"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Sequence Container\Execute SQL-ch_ho" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{5A923C5F-06E4-4E8E-9DE4-80D5C5F81DB1}"
+          DTS:From="Package\Sequence Container\Execute SQL-ch_ho"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Sequence Container\Backup" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{08056ACE-7C18-4B89-A2D4-60DAB46676DD}"
+          DTS:From="Package\Sequence Container\Backup"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Sequence Container\Remove Data" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Sequence Container\Backup"
+          TopLeft="89.7142920104826,268.23529924835" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Sequence Container\Execute SQL-ch_ho"
+          TopLeft="59.4285772090059,192.988239369508" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Sequence Container\Remove Data"
+          TopLeft="73.142863156844,402.352947851531" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Sequence Container\Transfer Allocations"
+          TopLeft="57.1428628843661,111.152943767561" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Sequence Container\Update Export Control Status 4"
+          TopLeft="72.5714345756844,335.200002917122" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Sequence Container\Update ExportControl"
+          TopLeft="52.0000056539265,12.517648603182" />
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
+          TopLeft="142.171434269146,54.117648603182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.0352951643788"
+              Start="0,0"
+              End="0,49.5352951643788">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5352951643788" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.485720046686,152.752943767561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.2352956019474"
+              Start="0,0"
+              End="0,32.7352956019474">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.7352956019474" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="144.428577209006,234.988239369508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.7857148014767,33.247059878842"
+              Start="0,0"
+              End="17.7857148014767,25.747059878842">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.623529939421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.623529939421"
+                    Point2="0,16.623529939421"
+                    Point3="4,16.623529939421" />
+                  <mssgle:LineSegment
+                    End="13.7857148014767,16.623529939421" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.7857148014767,16.623529939421"
+                    Point2="17.7857148014767,16.623529939421"
+                    Point3="17.7857148014767,20.623529939421" />
+                  <mssgle:LineSegment
+                    End="17.7857148014767,25.747059878842" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="162.214292010483,310.23529924835">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.07142885363862,92.117648603181"
+              Start="0,0"
+              End="-8.07142885363862,84.617648603181">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.0588243015905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,42.0588243015905"
+                    Point2="0,46.0588243015905"
+                    Point3="-4,46.0588243015905" />
+                  <mssgle:LineSegment
+                    End="-4.07142885363862,46.0588243015905" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.07142885363862,46.0588243015905"
+                    Point2="-8.07142885363862,46.0588243015905"
+                    Point3="-8.07142885363862,50.0588243015905" />
+                  <mssgle:LineSegment
+                    End="-8.07142885363862,84.617648603181" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="290,499"
+          Size="290,542"
+          Id="Package\Sequence Container"
+          TopLeft="280.000004768372,54.4470595871287" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\Transfer Allocations">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Sequence Container\Transfer Allocations\Lookup"
+          TopLeft="425.142864382997,245.929415213773" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Sequence Container\Transfer Allocations\ADO NET Destination"
+          TopLeft="583.428581364301,355.435299102493" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Sequence Container\Transfer Allocations\ADO NET Source"
+          TopLeft="561.142866699063,169.458825906008" />
+        <EdgeLayout
+          Id="Package\Sequence Container\Transfer Allocations.Paths[Lookup No Match Output]"
+          TopLeft="489.942864382997,287.529415213773">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182.685716981304,67.90588388872"
+              Start="0,0"
+              End="182.685716981304,60.40588388872">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.95294194436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.95294194436"
+                    Point2="0,33.95294194436"
+                    Point3="4,33.95294194436" />
+                  <mssgle:LineSegment
+                    End="178.685716981304,33.95294194436" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178.685716981304,33.95294194436"
+                    Point2="182.685716981304,33.95294194436"
+                    Point3="182.685716981304,37.95294194436" />
+                  <mssgle:LineSegment
+                    End="182.685716981304,60.40588388872" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="35.536471771902,38.95294194436,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Sequence Container\Transfer Allocations.Paths[ADO NET Source Output]"
+          TopLeft="639.942866699063,211.058825906008">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-150.000002316066,34.870589307765"
+              Start="0,0"
+              End="-150.000002316066,27.370589307765">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4352946538825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4352946538825"
+                    Point2="0,17.4352946538825"
+                    Point3="-4,17.4352946538825" />
+                  <mssgle:LineSegment
+                    End="-146.000002316066,17.4352946538825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-146.000002316066,17.4352946538825"
+                    Point2="-150.000002316066,17.4352946538825"
+                    Point3="-150.000002316066,21.4352946538825" />
+                  <mssgle:LineSegment
+                    End="-150.000002316066,27.370589307765" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Transfer Allocations\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Transfer Allocations\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\Transfer Allocations\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
